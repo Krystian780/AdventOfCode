@@ -1,4 +1,4 @@
-package com.company;
+package com.krystian;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,16 +8,10 @@ import java.util.HashMap;
 import java.util.List;
 
 public class CaloriesCalculator {
-    private List<String> listOfStrings
-            = new ArrayList<>();
+    private List<String> listOfStrings = new ArrayList<>();
 
-    private void getAllElements() throws IOException {
-        listOfStrings
-                = Files.readAllLines(Paths.get("C:\\Users\\Krystian\\Desktop\\input.txt"));
-    }
-
-    private List<Integer> pareAllElementsToInteger() throws IOException {
-        getAllElements();
+    private List<Integer> pareAllElementsToInteger(String path) throws IOException {
+        listOfStrings = Files.readAllLines(Paths.get(path));
         List<Integer> parsedIntegers = new ArrayList<>();
         for(int x = 0; x < listOfStrings.size(); x++) {
                 try {
@@ -30,8 +24,8 @@ public class CaloriesCalculator {
         return parsedIntegers;
         }
 
-    public Integer getMaximumCalories() throws IOException {
-        List<Integer> listOfIntegers = pareAllElementsToInteger();
+    public Integer getMaximumCalories(String path) throws IOException {
+        List<Integer> listOfIntegers = pareAllElementsToInteger(path);
         int counter = 0;
         int calories = 0;
         HashMap<Integer, Integer> caloriesOfEachElf= new HashMap<>();
