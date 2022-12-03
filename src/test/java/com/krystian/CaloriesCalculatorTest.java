@@ -10,13 +10,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class CaloriesCalculatorTest {
 
     @Test
-    public void shouldReturn70296() throws IOException {
+    public void shouldReturnTheBiggestAmountOfCalories() throws IOException {
         CaloriesCalculator caloriesCalculator = new CaloriesCalculator();
         assertEquals(70296, caloriesCalculator.getMaximumCalories("C:\\Users\\Krystian\\Desktop\\input.txt"));
     }
 
     @Test
-    public void shouldThrowFileNotFoundException() throws IOException {
+    public void shouldThrowNoSuchFileException() throws IOException {
         CaloriesCalculator caloriesCalculator = new CaloriesCalculator();
         Assertions.assertThrows(NoSuchFileException.class, () -> {
             caloriesCalculator.getMaximumCalories("C:\\Users\\Krystian\\Desktop\\inpusst.txt");
