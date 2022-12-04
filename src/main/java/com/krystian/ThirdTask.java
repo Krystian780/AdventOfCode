@@ -43,6 +43,22 @@ public class ThirdTask {
     private int getPointForLetter(String w){
         int count = 0;
         final Map<String, Integer> alphabet = new HashMap<>();
+        addIntoHashMap(alphabet);
+        try {
+            if (w == w.toLowerCase()) {
+                count = alphabet.get(w);
+            }
+            if (w == w.toUpperCase()) {
+                count = 26 + alphabet.get(w.toLowerCase());
+            }
+        }
+        catch (NullPointerException n){
+            System.out.println("go on");
+        }
+        return count;
+    }
+
+    public void addIntoHashMap(Map<String,Integer> alphabet){
         alphabet.put("a", 1);
         alphabet.put("b", 2);
         alphabet.put("c", 3);
@@ -69,19 +85,7 @@ public class ThirdTask {
         alphabet.put("x", 24);
         alphabet.put("y", 25);
         alphabet.put("z", 26);
-
-        try {
-            if (w == w.toLowerCase()) {
-                count = alphabet.get(w);
-            }
-            if (w == w.toUpperCase()) {
-                count = 26 + alphabet.get(w.toLowerCase());
-            }
-        }
-        catch (NullPointerException n){
-            System.out.println("go on");
-        }
-        return count;
     }
+
 }
 
